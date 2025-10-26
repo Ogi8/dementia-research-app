@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dementia Research and Treatments Information</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .loading {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-brain text-4xl mr-4"></i>
+                    <div>
+                        <h1 class="text-3xl font-bold">Dementia Research and Treatments Information</h1>
+                        <p class="text-blue-100 text-sm mt-1">Latest Updates on Alzheimer's and Dementia Research</p>
+                    </div>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center">
+                    <label for="language" class="mr-2 text-sm">
+                        <i class="fas fa-globe mr-1"></i> Language:
+                    </label>
+                    <select id="language" class="bg-white text-gray-800 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        <option value="EN">English</option>
+                        <option value="DE">Deutsch</option>
+                        <option value="FR">Français</option>
+                        <option value="ES">Español</option>
+                        <option value="IT">Italiano</option>
+                        <option value="HR">Hrvatski</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Loading Indicator -->
+        <div id="loading" class="flex justify-center items-center py-20">
+            <div class="loading"></div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+            <p><i class="fas fa-exclamation-circle mr-2"></i><span id="error-message"></span></p>
+        </div>
+
+        <!-- Latest Research Section -->
+        <section id="research-section" class="mb-12 hidden fade-in">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-microscope text-3xl text-blue-600 mr-3"></i>
+                <h2 class="text-3xl font-bold text-gray-800">Latest Research</h2>
+            </div>
+            <div id="research-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Research cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Latest Treatments Section -->
+        <section id="treatments-section" class="mb-12 hidden fade-in">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-pills text-3xl text-green-600 mr-3"></i>
+                <h2 class="text-3xl font-bold text-gray-800">Latest Treatments</h2>
+            </div>
+            <div id="treatments-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Treatment cards will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">
+                <i class="fas fa-code mr-2"></i>
+                Powered by <span class="font-semibold">FastAPI</span>, 
+                <span class="font-semibold">Hugging Face</span>, and 
+                <span class="font-semibold">DeepL</span>
+            </p>
+            <p class="text-xs text-gray-400 mt-2">
+                &copy; 2024 Dementia Research Information. For educational purposes only.
+            </p>
+        </div>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

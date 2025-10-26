@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informationen zu Demenz-Forschung und -Behandlungen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 25%, #3a5a7f 50%, #2d4a6f 75%, #1e3a5f 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 md:py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-brain text-3xl md:text-4xl mr-3 md:mr-4"></i>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">Informationen zu Demenz-Forschung und -Behandlungen</h1>
+                        <p class="text-blue-100 text-xs md:text-sm mt-1">Neueste Updates zur Alzheimer- und Demenzforschung</p>
+                    </div>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center">
+                    <label for="language" class="mr-2 text-xs md:text-sm">
+                        <i class="fas fa-globe mr-1"></i> Sprache:
+                    </label>
+                    <select id="language" onchange="changeLanguage(this.value)" class="bg-white text-gray-800 rounded-lg px-3 py-1.5 md:px-4 md:py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        
+                        <option value="en" >English</option>
+                        
+                        <option value="de" selected>Deutsch</option>
+                        
+                        <option value="fr" >Français</option>
+                        
+                        <option value="es" >Español</option>
+                        
+                        <option value="it" >Italiano</option>
+                        
+                        <option value="hr" >Hrvatski</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6 md:py-8">
+        <!-- Update Notice -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-3 md:p-4 mb-6 md:mb-8">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-info-circle text-blue-400 text-sm md:text-base"></i>
+                </div>
+                <div class="ml-2 md:ml-3">
+                    <p class="text-xs md:text-sm text-blue-700">
+                        Zuletzt aktualisiert: October 26, 2025 | Inhalte werden automatisch monatlich aktualisiert
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Treatments Section -->
+        <section class="mb-10 md:mb-12">
+            <div class="flex items-center mb-4 md:mb-6">
+                <i class="fas fa-pills text-2xl md:text-3xl text-green-600 mr-2 md:mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Neueste Behandlungen</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-green-100 text-green-800">FDA-zugelassen</span>
+                        
+                        
+                        <span class="text-xs text-gray-500">1970</span>
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Lecanemab (Leqembi)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Lecanemab ist ein humanisierter monoklonaler IgG1-Antikörper, der auf aggregierte lösliche (Protofibrillen) und unlösliche Formen von Amyloid-Beta abzielt. Klinische Studien zeigten, dass es den kognitiven Rückgang bei Alzheimer-Patienten im Frühstadium innerhalb von 18 Monaten um 27 % verlangsamte. Von der EMA im Jahr 2024 zugelassen.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/leqembi" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Donanemab</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Donanemab ist ein monoklonaler Antikörper, der auf eine modifizierte Form abgelagerter Amyloid-Beta-Plaques (N3pG) abzielt. Phase-3-Studien zeigen, dass es den kognitiven Rückgang bei frühsymptomatischer Alzheimer-Krankheit um bis zu 35 % verlangsamt. EMA-Prüfung für europäische Zulassung im Zeitraum 2024–2025 läuft.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/donanemab" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">LUMIPOSA Lichttherapie</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Die LUMIPOSA-Studie (NCT05955534) an der Charité Berlin untersucht die unsichtbare 40-Hz-Spektrallichttherapie bei leichter bis mittelschwerer Alzheimer-Krankheit. Die Studie nutzt Gammafrequenz-Lichtstimulation, um möglicherweise Amyloid-Plaques zu reduzieren und die kognitiven Funktionen durch nicht-invasive Hirnstimulation zu verbessern.</p>
+                    
+                    <a href="https://www.clinicaltrialsregister.eu/ctr-search/search?query=NCT05955534" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Mittelmeer-DASH-Diät (MIND)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Europäische multizentrische Studien (FINGER, LIPIDIDIET) zeigen, dass die MIND-Diät – eine Kombination aus Mittelmeer- und DASH-Diät – den kognitiven Verfall verlangsamen kann. Der Schwerpunkt der Ernährung liegt auf Olivenöl, Fisch, Gemüse, Beeren und Nüssen, während gleichzeitig rotes Fleisch und gesättigte Fette eingeschränkt werden.</p>
+                    
+                    <a href="https://alzheimer-europe.org/research/finger-study" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Gantenerumab</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Gantenerumab ist ein vollständig humaner monoklonaler IgG1-Antikörper, der aggregiertes Amyloid-Beta binden soll. Trotz anfänglicher Rückschläge setzt Roche seine europäischen Studien mit höheren Dosierungen fort. Aktuelle Studien zeigen, dass die Reduzierung von Amyloid-Plaques bei der frühen Alzheimer-Krankheit vielversprechend ist.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/gantenerumab" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Transkranielle Gleichstromstimulation (tDCS)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Europäische Forschungszentren erforschen nicht-invasive tDCS-Therapie bei Alzheimer. Elektrostimulation geringer Intensität zielt auf Gehirnregionen ab, die an Gedächtnis und Kognition beteiligt sind. Mehrere EU-Studien zeigen bescheidene Verbesserungen der kognitiven Leistung und der täglichen Funktionsweise.</p>
+                    
+                    <a href="https://www.alzheimer-europe.org/research/understanding-dementia-research/types-research/non-drug-research" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Aducanumab (Aduhelm)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Aducanumab ist ein humaner monoklonaler Antikörper, der auf aggregierte Formen von Amyloid-Beta abzielt. Während die Zulassung in den USA im Jahr 2021 umstritten war, lehnte die EMA sie im Jahr 2021 mit der Begründung unzureichender Beweise ab. Einige europäische Zentren führen Beobachtungsstudien zu seinen langfristigen Auswirkungen fort.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/withdrawn-applications/aduhelm" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-green-100 text-green-800">FDA-zugelassen</span>
+                        
+                        
+                        <span class="text-xs text-gray-500">1970</span>
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Memantin-Kombinationen mit verlängerter Wirkstofffreisetzung</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Europäische Studien untersuchen Memantin mit verlängerter Freisetzung (NMDA-Rezeptorantagonist) in Kombination mit Acetylcholinesterase-Inhibitoren bei mittelschwerer bis schwerer Alzheimer-Krankheit. Studien konzentrieren sich auf optimierte Dosierungspläne und Kombinationstherapien, um den kognitiven Nutzen zu maximieren.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/ebixa" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">GLP-1-Rezeptoragonisten für Alzheimer</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">GLP-1-Analoga, die ursprünglich für Diabetes und Gewichtsverlust entwickelt wurden (wie Semaglutid/Ozempic), sind vielversprechend für die Behandlung von Alzheimer. Untersuchungen legen nahe, dass diese Medikamente die Gesundheit des Gehirns schützen, das Gedächtnis verbessern und die Neurodegeneration verlangsamen können, indem sie Entzündungen reduzieren und das Überleben der Gehirnzellen unterstützen.</p>
+                    
+                    <a href="https://www.brightfocus.org/resource/can-glp-1-weight-loss-drugs-treat-alzheimers/" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Forschungsstadium</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">40-Hz-Licht- und Tonstimulation (HOPE-Studie)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Nicht-invasive Therapie mit 40-Hz-Licht- und Tonstimulation zur gezielten Behandlung von Gamma-Gehirnwellen. Die HOPE-Studie untersucht, wie diese Therapie das Gedächtnis, die Denkfähigkeit und die Alltagsfunktionen bei Alzheimer-Patienten schützen kann, indem sie potenziell schädliche Gehirnproteine ​​reduziert.</p>
+                    
+                    <a href="https://www.brightfocus.org/resource/non-invasive-light-and-sound-stimulation-therapy-in-alzheimers-update-on-hope-study/" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Mehr erfahren <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Latest Research Section -->
+        <section class="mb-10 md:mb-12">
+            <div class="flex items-center mb-4 md:mb-6">
+                <i class="fas fa-microscope text-2xl md:text-3xl text-blue-600 mr-2 md:mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Neueste Forschung</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Medical gas research</span>
+                        <span class="text-xs text-gray-500">2026-06-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Pflanzliche Phenole als Regulatoren der Stickoxidproduktion in Mikroglia: Mechanismen und therapeutisches Potenzial.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Neuroinflammation spielt eine entscheidende Rolle bei der Pathogenese neurodegenerativer Erkrankungen, wobei die Mikroglia-Aktivierung und die übermäßige Stickoxidproduktion erheblich zum Fortschreiten der Krankheit beitragen. Pflanzliche Phenolverbindungen haben sich aufgrund ihrer Fähigkeit, die wichtigsten Signalwege zu modulieren, einschließlich Kernfaktor-κB, Mitogen-aktivierten Proteinkinasen, Kernfaktor Erythroid 2-verwandter Faktor 2 und Phosphoinositid-3-Kinase/Protein-K, als vielversprechende neuroprotektive Wirkstoffe erwiesen.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Naira Sahakyan
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40826941/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Laktat- und Laktylierungsveränderungen bei neurologischen Erkrankungen.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Die Erforschung von Laktylierungsmodifikationen in verschiedenen Zielorganen sowohl bei Gesundheit als auch bei Krankheit hat erhebliche Aufmerksamkeit erlangt. Viele wesentliche Lebensprozesse und die Entstehung von Krankheiten hängen nicht nur mit der Proteinfülle zusammen, sondern werden auch hauptsächlich durch verschiedene posttranslationale Proteinmodifikationen reguliert. Laktat, das einst lediglich als Nebenprodukt des anaeroben Stoffwechsels galt, hat sich zu einem entscheidenden Energiesubstrat und Signalmolekül entwickelt, das sowohl an physiologischen als auch pathologischen Prozessen beteiligt ist.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Yu Gu, Keyang Chen et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40537007/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Tiefe Hirnstimulation zur Behandlung der Alzheimer-Krankheit: Eine sicherere und wirksamere Strategie.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Die Alzheimer-Krankheit ist die häufigste Form der kognitiven Störung und es besteht ein dringender Bedarf, wirksamere, gezieltere und sicherere Therapien für Patienten mit dieser Erkrankung zu entwickeln. Bei der Tiefenhirnstimulation handelt es sich um eine invasive chirurgische Behandlung, die abnormale neuronale Aktivität durch die Implantation von Elektroden in bestimmte Gehirnbereiche und anschließende elektrische Stimulation moduliert. Als neuer Therapieansatz ist die Tiefenhirnstimulation als potenzielle neue Therapie für die Alzheimer-Krankheit vielversprechend …</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Fan Zhang, Yao Meng et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40536997/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Neuroinflammation bei neurodegenerativen Erkrankungen: Schwerpunkt auf der Vermittlung von T-Lymphozyten.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Neurodegenerative Erkrankungen sind eine Gruppe von Krankheiten, die durch eine allmähliche Verschlechterung des Zentralnervensystems gekennzeichnet sind, was zu einer Verschlechterung der kognitiven, motorischen und emotionalen Fähigkeiten der Patienten führt. Beim Fortschreiten dieser Erkrankungen spielt die Neuroinflammation eine wesentliche Rolle. Es gibt jedoch nur begrenzte Forschungsergebnisse zu therapeutischen Ansätzen, die gezielt auf Neuroinflammation abzielen. Die Rolle von T-Lymphozyten, die entscheidende Mediatoren der adaptiven Immunantwort sind, bei neurodegenerativen Erkrankungen.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Ke Li, Rongsha Chen et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40536931/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Neueste Fortschritte und Herausforderungen bei der Arzneimittelentwicklung für degenerative Motoneuronerkrankungen.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Motoneuronerkrankungen sind sporadische oder vererbte tödliche neurodegenerative Erkrankungen. Sie wirken sich selektiv auf die oberen und/oder unteren Motoneuronen im Gehirn und Rückenmark aus und zeichnen sich durch einen langsamen Beginn und einen subakuten Verlauf abhängig von der Schadensstelle aus. Zu den Haupttypen gehören die Amyotrophe Lateralsklerose, die progressive Muskelatrophie, die primäre Lateralsklerose und die progressive Bulbarparese, deren pathologische Prozesse weitgehend identisch sind, wobei die Hauptunterschiede in der Lokalisation liegen.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Xiangjin Wen, Tianxiang Lan et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40364643/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Extrazelluläre Nukleotide vermitteln virale Infektionen des Zentralnervensystems: Schlüsselalarmine für Neuroinflammation und Neurodegeneration.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Die jüngste Zunahme von Infektionskrankheiten, die das Zentralnervensystem betreffen, hat Bedenken hinsichtlich ihrer Rolle bei Neuroinflammation und Neurodegeneration geweckt. Virale Krankheitserreger oder ihre Produkte können in das Zentralnervensystem eindringen und Schäden verursachen, die zu Meningitis, Enzephalitis, Meningoenzephalitis, Myelitis oder postinfektiösen demyelinisierenden Erkrankungen führen können. Obwohl Neuroinflammationen zunächst eine Schutzfunktion haben, können chronische Entzündungen zur Entwicklung neurodegenerativer Erkrankungen beitragen.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Raíssa Leite-Aguiar, Elaine Paiva-Pereira et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40364625/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Die entscheidende Rolle der Eisenhomöostase bei neurodegenerativen Erkrankungen.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Neurodegenerative Erkrankungen sind weit verbreitete Erkrankungen, die große Auswirkungen auf die menschliche Gesundheit haben. Diese Krankheiten sind in erster Linie durch den fortschreitenden Verlust und schließlichen Tod neuronaler Funktionen gekennzeichnet, obwohl die genauen Mechanismen, die diesen Prozessen zugrunde liegen, noch nicht vollständig geklärt sind. Eisen ist ein essentielles Spurenelement im menschlichen Körper und spielt bei verschiedenen biologischen Prozessen eine entscheidende Rolle. Die Aufrechterhaltung der Eisenhomöostase hängt von den komplexen und differenzierten Regulierungsmechanismen des Körpers ab. ...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Tiantian Liang, Jiasen Xu et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40313117/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Synaptische Beschneidungsmechanismen und Anwendung neuer bildgebender Verfahren bei neurologischen Erkrankungen.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Das synaptische Beschneiden ist ein entscheidender Prozess bei der synaptischen Verfeinerung und beseitigt instabile synaptische Verbindungen in neuronalen Schaltkreisen. Dieser Prozess wird vor allem durch spontane neuronale Aktivität und erfahrungsabhängige Mechanismen ausgelöst und reguliert. Der Beschneidungsprozess umfasst mehrere molekulare Signale und eine Reihe regulatorischer Aktivitäten, die die Zustände „Iss mich“ und „Iss mich nicht“ steuern. Unter physiologischen Bedingungen führt die Interaktion zwischen Gliazellen und Neuronen zur Beseitigung unn...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Yakang Xing, Yi Mo et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40313098/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Weiterlesen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">
+                <i class="fas fa-code mr-2"></i>
+                Bereitgestellt von <span class="font-semibold">FastAPI</span> und
+                <span class="font-semibold">Google Translate</span>
+            </p>
+            <p class="text-xs text-gray-400 mt-2">
+                &copy; 2024 Dementia Research Information. Nur für Bildungszwecke.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function changeLanguage(lang) {
+            window.location.href = '/languages/' + lang + '/';
+        }
+    </script>
+</body>
+</html>

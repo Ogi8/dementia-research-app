@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacije o istraživanjima i liječenju demencije</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 25%, #3a5a7f 50%, #2d4a6f 75%, #1e3a5f 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 md:py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-brain text-3xl md:text-4xl mr-3 md:mr-4"></i>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">Informacije o istraživanjima i liječenju demencije</h1>
+                        <p class="text-blue-100 text-xs md:text-sm mt-1">Najnovija ažuriranja o istraživanju Alzheimerove bolesti i demencije</p>
+                    </div>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center">
+                    <label for="language" class="mr-2 text-xs md:text-sm">
+                        <i class="fas fa-globe mr-1"></i> Jezik:
+                    </label>
+                    <select id="language" onchange="changeLanguage(this.value)" class="bg-white text-gray-800 rounded-lg px-3 py-1.5 md:px-4 md:py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        
+                        <option value="en" >English</option>
+                        
+                        <option value="de" >Deutsch</option>
+                        
+                        <option value="fr" >Français</option>
+                        
+                        <option value="es" >Español</option>
+                        
+                        <option value="it" >Italiano</option>
+                        
+                        <option value="hr" selected>Hrvatski</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6 md:py-8">
+        <!-- Update Notice -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-3 md:p-4 mb-6 md:mb-8">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-info-circle text-blue-400 text-sm md:text-base"></i>
+                </div>
+                <div class="ml-2 md:ml-3">
+                    <p class="text-xs md:text-sm text-blue-700">
+                        Zadnje ažuriranje: October 26, 2025 | Sadržaj se automatski ažurira mjesečno
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Treatments Section -->
+        <section class="mb-10 md:mb-12">
+            <div class="flex items-center mb-4 md:mb-6">
+                <i class="fas fa-pills text-2xl md:text-3xl text-green-600 mr-2 md:mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Najnoviji tretmani</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-green-100 text-green-800">FDA odobreno</span>
+                        
+                        
+                        <span class="text-xs text-gray-500">1970</span>
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Lekanemab (Leqembi)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Lekanemab je humanizirano IgG1 monoklonsko protutijelo koje cilja na agregirane topive (protofibrile) i netopljive oblike amiloida-beta. Klinička ispitivanja su pokazala da je usporio kognitivni pad za 27% tijekom 18 mjeseci kod pacijenata s ranom Alzheimerovom bolešću. Odobreno od strane EMA-e 2024.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/leqembi" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Donanemab</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Donanemab je monoklonsko protutijelo koje cilja na modificirani oblik taloženih amiloidnih beta plakova (N3pG). Ispitivanja faze 3 pokazuju da je usporio kognitivni pad do 35% kod ranih simptoma Alzheimerove bolesti. U tijeku je pregled EMA-e za europsko odobrenje 2024.-2025.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/donanemab" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">LUMIPOSA svjetlosna terapija</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Ispitivanje LUMIPOSA (NCT05955534) u Charité Berlin istražuje terapiju nevidljivim spektralnim svjetlom od 40 Hz za blagu do umjerenu Alzheimerovu bolest. Studija koristi stimulaciju svjetlom gama frekvencije za potencijalno smanjenje amiloidnih naslaga i poboljšanje kognitivnih funkcija neinvazivnom stimulacijom mozga.</p>
+                    
+                    <a href="https://www.clinicaltrialsregister.eu/ctr-search/search?query=NCT05955534" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Mediteranska DASH dijeta (MIND)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Europska multicentrična ispitivanja (FINGER, LIPIDIDIET) pokazuju da MIND dijeta—kombinacija mediteranske i DASH dijete—može usporiti kognitivni pad. Dijeta naglašava maslinovo ulje, ribu, povrće, bobičasto voće i orašaste plodove dok ograničava crveno meso i zasićene masti.</p>
+                    
+                    <a href="https://alzheimer-europe.org/research/finger-study" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Gantenerumab</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Gantenerumab je potpuno ljudsko IgG1 monoklonsko protutijelo dizajnirano da veže agregirani amiloid-beta. Unatoč početnim neuspjesima, Roche nastavlja europska ispitivanja s višim režimima doziranja. Nedavne studije pokazuju određeno obećanje u smanjenju amiloidnih naslaga u ranoj fazi Alzheimerove bolesti.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/gantenerumab" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Transkranijalna stimulacija istosmjernom strujom (tDCS)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Europski istraživački centri istražuju neinvazivnu tDCS terapiju za Alzheimerovu bolest. Električna stimulacija niskog intenziteta cilja na regije mozga uključene u pamćenje i spoznaju. Više EU studija pokazuje skromna poboljšanja u kognitivnim performansama i svakodnevnom funkcioniranju.</p>
+                    
+                    <a href="https://www.alzheimer-europe.org/research/understanding-dementia-research/types-research/non-drug-research" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Adukanumab (Aduhelm)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Aducanumab je ljudsko monoklonsko protutijelo koje cilja na agregirane oblike amiloida-beta. Iako je bio kontroverzno odobren u SAD-u 2021., EMA ga je odbila 2021. navodeći nedovoljno dokaza. Neki europski centri nastavljaju promatračke studije o njegovim dugoročnim učincima.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/withdrawn-applications/aduhelm" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-green-100 text-green-800">FDA odobreno</span>
+                        
+                        
+                        <span class="text-xs text-gray-500">1970</span>
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Kombinacije memantina s produljenim oslobađanjem</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Europska ispitivanja istražuju memantin s produljenim otpuštanjem (antagonist NMDA receptora) u kombinaciji s inhibitorima acetilkolinesteraze za umjerenu do tešku Alzheimerovu bolest. Studije su usmjerene na optimizirane rasporede doziranja i kombinirane terapije kako bi se maksimizirale kognitivne koristi.</p>
+                    
+                    <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/ebixa" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Agonisti GLP-1 receptora za Alzheimerovu bolest</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Analozi GLP-1, izvorno razvijeni za dijabetes i mršavljenje (poput semaglutida/Ozempica), obećavaju liječenje Alzheimerove bolesti. Istraživanja sugeriraju da ovi lijekovi mogu zaštititi zdravlje mozga, poboljšati pamćenje i usporiti neurodegeneraciju smanjenjem upale i podupiranjem preživljavanja moždanih stanica.</p>
+                    
+                    <a href="https://www.brightfocus.org/resource/can-glp-1-weight-loss-drugs-treat-alzheimers/" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        
+                        <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-800">Faza istraživanja</span>
+                        
+                        
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Svjetlosna i zvučna stimulacija od 40 Hz (studija HOPE)</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Neinvazivna terapija koja koristi svjetlosnu i zvučnu stimulaciju frekvencije 40 Hz za ciljanje gama moždanih valova. Studija HOPE istražuje kako ova terapija može zaštititi pamćenje, sposobnosti razmišljanja i svakodnevne funkcije kod pacijenata s Alzheimerovom bolešću tako što potencijalno smanjuje štetne moždane proteine.</p>
+                    
+                    <a href="https://www.brightfocus.org/resource/non-invasive-light-and-sound-stimulation-therapy-in-alzheimers-update-on-hope-study/" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                        Saznaj više <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Latest Research Section -->
+        <section class="mb-10 md:mb-12">
+            <div class="flex items-center mb-4 md:mb-6">
+                <i class="fas fa-microscope text-2xl md:text-3xl text-blue-600 mr-2 md:mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Najnovija istraživanja</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Medical gas research</span>
+                        <span class="text-xs text-gray-500">2026-06-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Fenolni spojevi biljnog podrijetla kao regulatori proizvodnje dušikovog oksida u mikrogliji: mehanizmi i terapijski potencijal.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Neuroinflamacija igra ključnu ulogu u patogenezi neurodegenerativnih bolesti s mikroglijalnom aktivacijom i prekomjernom proizvodnjom dušikovog oksida koji značajno pridonose progresiji bolesti. Fenolni spojevi biljnog podrijetla pokazali su se kao obećavajući neuroprotektivni agensi zbog svoje sposobnosti moduliranja ključnih signalnih putova, uključujući nuklearni faktor-κB, protein kinaze aktivirane mitogenom, faktor 2 povezan s nuklearnim faktorom eritroid 2 i fosfoinozitid 3-kinazu/protein k...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Naira Sahakyan
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40826941/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Modifikacije laktata i laktilacije kod neuroloških poremećaja.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Istraživanje modifikacija laktilacije u različitim ciljnim organima u zdravlju i bolesti privuklo je značajnu pozornost. Mnogi bitni životni procesi i pojava bolesti nisu povezani samo s obiljem proteina, već su prvenstveno regulirani raznim posttranslacijskim modifikacijama proteina. Laktat, koji se nekoć smatrao samo nusproduktom anaerobnog metabolizma, pojavio se kao ključni energetski supstrat i signalna molekula uključena u fiziološke i patološke procese...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Yu Gu, Keyang Chen et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40537007/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Duboka stimulacija mozga za liječenje Alzheimerove bolesti: sigurnija i učinkovitija strategija.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Alzheimerova bolest je najčešći tip kognitivnog poremećaja i postoji hitna potreba za razvojem učinkovitijih, ciljanijih i sigurnijih terapija za pacijente s ovim stanjem. Duboka moždana stimulacija je invazivni kirurški tretman koji modulira abnormalnu neuralnu aktivnost implantacijom elektroda u određena područja mozga nakon čega slijedi električna stimulacija. Kao terapijski pristup u nastajanju, duboka moždana stimulacija obećava kao potencijalna nova terapija za Alzheimerovu bolest...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Fan Zhang, Yao Meng et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40536997/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Neuroinflamacija u neurodegenerativnim bolestima: s fokusom na posredovanje T limfocita.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Neurodegenerativne bolesti su skupina bolesti koje karakterizira postupno propadanje središnjeg živčanog sustava, što dovodi do pada kognitivnih, motoričkih i emocionalnih sposobnosti pacijenata. Neuroinflamacija igra značajnu ulogu u napredovanju ovih bolesti. Međutim, postoji ograničeno istraživanje o terapijskim pristupima za specifično ciljanje neuroinflamacije. Uloga T limfocita, koji su ključni posrednici adaptivnog imunološkog odgovora, u neurodegenerativnim d...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Ke Li, Rongsha Chen et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40536931/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Najnoviji napredak i izazovi u razvoju lijekova za degenerativne bolesti motoričkih neurona.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Bolesti motoričkih neurona su sporadična ili nasljedna fatalna neurodegenerativna stanja. Selektivno utječu na gornje i/ili donje motoričke neurone u mozgu i leđnoj moždini i imaju polagani početak i subakutni tijek ovisno o mjestu oštećenja. Glavni tipovi uključuju amiotrofičnu lateralnu sklerozu, progresivnu mišićnu atrofiju, primarnu lateralnu sklerozu i progresivnu bulbarnu paralizu, čiji su patološki procesi uglavnom identični, a glavna razlika leži u lok...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Xiangjin Wen, Tianxiang Lan et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40364643/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Izvanstanični nukleotidi posreduju kod virusnih infekcija središnjeg živčanog sustava: ključni alarmi neuroupale i neurodegeneracije.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Nedavno povećanje zaraznih bolesti koje pogađaju središnji živčani sustav izazvalo je zabrinutost o njihovoj ulozi u neuroinflamaciji i neurodegeneraciji. Virusni patogeni ili njihovi produkti mogu prodrijeti u središnji živčani sustav i uzrokovati oštećenje, što dovodi do meningitisa, encefalitisa, meningoencefalitisa, mijelitisa ili postinfektivnih demijelinizirajućih bolesti. Iako neuroupala u početku ima zaštitnu funkciju, kronična upala može pridonijeti razvoju neurodegenerativnih...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Raíssa Leite-Aguiar, Elaine Paiva-Pereira et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40364625/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Kritična uloga homeostaze željeza u neurodegenerativnim bolestima.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Neurodegenerativne bolesti su prevladavajuća stanja koja uvelike utječu na ljudsko zdravlje. Ove su bolesti primarno obilježene progresivnim gubitkom i konačnom smrću neuronske funkcije, iako točni mehanizmi koji leže u pozadini tih procesa ostaju nepotpuno shvaćeni. Željezo je esencijalni element u tragovima u ljudskom tijelu, igra ključnu ulogu u raznim biološkim procesima. Održavanje homeostaze željeza oslanja se na zamršene i nijansirane regulacijske mehanizme tijela. ...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Tiantian Liang, Jiasen Xu et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40313117/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-start justify-between mb-2 md:mb-3">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Neural regeneration research</span>
+                        <span class="text-xs text-gray-500">2026-05-01</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Mehanizmi sinaptičkog rezanja i primjena novih tehnika snimanja u neurološkim poremećajima.</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">Sinaptičko obrezivanje ključni je proces u sinaptičkom usavršavanju, eliminirajući nestabilne sinaptičke veze u neuralnim krugovima. Taj proces pokreću i reguliraju prvenstveno spontana neuralna aktivnost i mehanizmi ovisni o iskustvu. Proces obrezivanja uključuje višestruke molekularne signale i niz regulatornih aktivnosti koje upravljaju stanjima "pojedi me" i "nemoj me pojesti". U fiziološkim uvjetima, interakcija između glijalnih stanica i neurona rezultira uklanjanjem neaktivnih...</p>
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user mr-1"></i>
+                            Yakang Xing, Yi Mo et al.
+                        </div>
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40313098/" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
+                            Pročitaj više <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">
+                <i class="fas fa-code mr-2"></i>
+                Pokreće <span class="font-semibold">FastAPI</span> i
+                <span class="font-semibold">Google Translate</span>
+            </p>
+            <p class="text-xs text-gray-400 mt-2">
+                &copy; 2024 Dementia Research Information. Samo u obrazovne svrhe.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function changeLanguage(lang) {
+            window.location.href = '/languages/' + lang + '/';
+        }
+    </script>
+</body>
+</html>
