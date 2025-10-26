@@ -123,6 +123,43 @@ async def _translate_treatment(treatment: Dict, target_lang: str) -> Dict:
         return treatment
 
 
+def format_date_for_language(date: datetime, lang: str) -> str:
+    """Format date according to language conventions."""
+    month_translations = {
+        "en": ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"],
+        "de": ["Januar", "Februar", "März", "April", "Mai", "Juni",
+               "Juli", "August", "September", "Oktober", "November", "Dezember"],
+        "fr": ["janvier", "février", "mars", "avril", "mai", "juin",
+               "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+        "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+               "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+        "it": ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
+               "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],
+        "hr": ["siječnja", "veljače", "ožujka", "travnja", "svibnja", "lipnja",
+               "srpnja", "kolovoza", "rujna", "listopada", "studenoga", "prosinca"]
+    }
+    
+    months = month_translations.get(lang, month_translations["en"])
+    month_name = months[date.month - 1]
+    
+    # Date format by language
+    if lang == "en":
+        return f"{month_name} {date.day}, {date.year}"
+    elif lang == "de":
+        return f"{date.day}. {month_name} {date.year}"
+    elif lang == "fr":
+        return f"{date.day} {month_name} {date.year}"
+    elif lang == "es":
+        return f"{date.day} de {month_name} de {date.year}"
+    elif lang == "it":
+        return f"{date.day} {month_name} {date.year}"
+    elif lang == "hr":
+        return f"{date.day}. {month_name} {date.year}."
+    else:
+        return f"{month_name} {date.day}, {date.year}"
+
+
 def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], output_dir: Path):
     """Generate static HTML page for a specific language."""
     # Language names for display
@@ -262,6 +299,9 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
     # Get translations for current language
     ui = ui_translations.get(lang, ui_translations["en"])
     
+    # Format date in the appropriate language
+    formatted_date = format_date_for_language(datetime.now(), lang)
+    
     # Render HTML
     html_content = template.render(
         lang=lang,
@@ -271,7 +311,7 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
         ui=ui,
         articles=articles,
         treatments=treatments,
-        update_date=datetime.now().strftime("%B %d, %Y"),
+        update_date=formatted_date,
         current_year=datetime.now().year
     )
     
