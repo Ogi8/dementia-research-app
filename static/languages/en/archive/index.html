@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Archives - Dementia Research and Treatments Information</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 25%, #3a5a7f 50%, #2d4a6f 75%, #1e3a5f 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-gray-900 bg-opacity-50 shadow-md backdrop-blur-sm">
+        <nav class="container mx-auto px-4 py-3 md:py-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="mb-3 md:mb-0">
+                    <h1 class="text-xl md:text-2xl font-bold text-white">Dementia Research and Treatments Information</h1>
+                    <p class="text-xs md:text-sm text-gray-300">Latest Updates on Alzheimer's and Dementia Research</p>
+                </div>
+                <div class="flex items-center space-x-3 md:space-x-4">
+                    <label for="language-select" class="text-xs md:text-sm text-gray-300">Language:</label>
+                    <select id="language-select" onchange="changeLanguage(this.value)" class="bg-gray-800 border border-gray-700 text-white text-xs md:text-sm rounded-lg px-2 md:px-3 py-1 md:py-2">
+                        
+                        <option value="en" selected>English</option>
+                        
+                        <option value="de" >Deutsch</option>
+                        
+                        <option value="fr" >Français</option>
+                        
+                        <option value="es" >Español</option>
+                        
+                        <option value="it" >Italiano</option>
+                        
+                        <option value="hr" >Hrvatski</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6 md:py-8">
+        <!-- Back to Home Link -->
+        <div class="mb-6">
+            <a href="/languages/en/" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                <i class="fas fa-arrow-left mr-1"></i> Back to Home
+            </a>
+        </div>
+
+        <!-- Archive Title -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Monthly Archives</h2>
+            <p class="text-sm md:text-base text-gray-300">Browse past research articles and treatments</p>
+        </div>
+
+        <!-- Archive List -->
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            
+            <a href="/languages/en/archive/2025-10/" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-calendar-alt text-blue-600 text-2xl mr-3"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">October 2025</h3>
+                        <p class="text-sm text-gray-500">18 <built-in method items of dict object at 0x106d68780></p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600">
+                    8 research articles • 10 treatments
+                </p>
+            </a>
+            
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 bg-opacity-50 text-white mt-12 md:mt-16 py-6 md:py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs md:text-sm mb-2">&copy; 2025 Dementia Research Information</p>
+            <p class="text-xs text-gray-400">For educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeLanguage(lang) {
+            window.location.href = '/languages/' + lang + '/archive';
+        }
+    </script>
+</body>
+</html>

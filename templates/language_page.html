@@ -49,19 +49,57 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-6 md:py-8">
-        <!-- Update Notice -->
-        <div class="bg-blue-50 border-l-4 border-blue-400 p-3 md:p-4 mb-6 md:mb-8">
-            <div class="flex">
-                <div class="flex-shrink-0">
-                    <i class="fas fa-info-circle text-blue-400 text-sm md:text-base"></i>
-                </div>
-                <div class="ml-2 md:ml-3">
-                    <p class="text-xs md:text-sm text-blue-700">
-                        {{ ui.last_updated }} {{ update_date }} | {{ ui.auto_update_note }}
+        <!-- Archive Notice (only shown on archived pages) -->
+        {% if is_archived %}
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 md:p-4 mb-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-archive text-yellow-600 mr-2"></i>
+                    <p class="text-xs md:text-sm text-yellow-700 font-semibold">
+                        {{ ui.archived_content }} {{ archive_date }}
                     </p>
+                </div>
+                <div class="flex space-x-3">
+                    <a href="/languages/{{ lang }}/archive" class="text-xs md:text-sm text-yellow-700 hover:text-yellow-900 underline">
+                        <i class="fas fa-list mr-1"></i> {{ ui.all_archives }}
+                    </a>
+                    <a href="/languages/{{ lang }}/" class="text-xs md:text-sm text-yellow-700 hover:text-yellow-900 underline">
+                        <i class="fas fa-home mr-1"></i> {{ ui.current_content }}
+                    </a>
                 </div>
             </div>
         </div>
+        {% endif %}
+        
+        <!-- Update Notice with Countdown (only on current page) -->
+        {% if not is_archived %}
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-3 md:p-4 mb-6 md:mb-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="flex mb-2 md:mb-0">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-info-circle text-blue-400 text-sm md:text-base"></i>
+                    </div>
+                    <div class="ml-2 md:ml-3">
+                        <p class="text-xs md:text-sm text-blue-700">
+                            {{ ui.last_updated }} {{ update_date }} | {{ ui.auto_update_note }}
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center text-xs md:text-sm text-blue-700 font-semibold">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>{{ ui.next_update }}</span>
+                    <span id="countdown" class="ml-2 font-mono bg-blue-100 px-2 py-1 rounded">--d --h --m</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Archive Link -->
+        <div class="text-right mb-4">
+            <a href="/languages/{{ lang }}/archive" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                <i class="fas fa-archive mr-1"></i> {{ ui.view_archive }}
+            </a>
+        </div>
+        {% endif %}
 
         <!-- Latest Treatments Section -->
         <section class="mb-10 md:mb-12">
@@ -86,11 +124,14 @@
                     </div>
                     <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">{{ treatment.name }}</h3>
                     <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">{{ treatment.description }}</p>
-                    {% if treatment.url %}
-                    <a href="{{ treatment.url }}" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
-                        {{ ui.learn_more }} <i class="fas fa-external-link-alt ml-1"></i>
-                    </a>
-                    {% endif %}
+                    <div class="flex items-center justify-between">
+                        {% if treatment.url %}
+                        <a href="{{ treatment.url }}" target="_blank" class="text-green-600 hover:text-green-800 text-xs md:text-sm font-semibold">
+                            {{ ui.learn_more }} <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        {% endif %}
+                        <span class="text-xs text-gray-400 italic">{{ ui.source }}: {{ treatment.source }}</span>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -106,21 +147,17 @@
                 {% for article in articles %}
                 <div class="bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
                     <div class="flex items-start justify-between mb-2 md:mb-3">
-                        <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">{{ article.source }}</span>
                         <span class="text-xs text-gray-500">{{ article.publication_date[:10] }}</span>
                     </div>
                     <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">{{ article.title }}</h3>
                     <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4">{{ article.summary }}</p>
                     <div class="flex items-center justify-between">
-                        <div class="text-xs text-gray-500">
-                            <i class="fas fa-user mr-1"></i>
-                            {{ article.authors[:2]|join(', ') }}{% if article.authors|length > 2 %} et al.{% endif %}
-                        </div>
                         {% if article.url %}
                         <a href="{{ article.url }}" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs md:text-sm font-semibold">
                             {{ ui.read_more }} <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                         {% endif %}
+                        <span class="text-xs text-gray-400 italic">{{ ui.source }}: {{ article.source }}</span>
                     </div>
                 </div>
                 {% endfor %}
@@ -146,6 +183,27 @@
         function changeLanguage(lang) {
             window.location.href = '/languages/' + lang + '/';
         }
+        
+        // Countdown timer to next update (1st of next month at 2 AM UTC)
+        function updateCountdown() {
+            const now = new Date();
+            const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1, 2, 0, 0);
+            const diff = nextMonth - now;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown').textContent = '{{ ui.updating }}';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m`;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000); // Update every minute
     </script>
 </body>
 </html>

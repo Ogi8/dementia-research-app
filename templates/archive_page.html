@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ui.archive_title }} - {{ ui.page_title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 25%, #3a5a7f 50%, #2d4a6f 75%, #1e3a5f 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-gray-900 bg-opacity-50 shadow-md backdrop-blur-sm">
+        <nav class="container mx-auto px-4 py-3 md:py-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="mb-3 md:mb-0">
+                    <h1 class="text-xl md:text-2xl font-bold text-white">{{ ui.page_title }}</h1>
+                    <p class="text-xs md:text-sm text-gray-300">{{ ui.page_subtitle }}</p>
+                </div>
+                <div class="flex items-center space-x-3 md:space-x-4">
+                    <label for="language-select" class="text-xs md:text-sm text-gray-300">{{ ui.language_label }}</label>
+                    <select id="language-select" onchange="changeLanguage(this.value)" class="bg-gray-800 border border-gray-700 text-white text-xs md:text-sm rounded-lg px-2 md:px-3 py-1 md:py-2">
+                        {% for l in all_languages %}
+                        <option value="{{ l }}" {% if l == lang %}selected{% endif %}>{{ lang_names[l] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6 md:py-8">
+        <!-- Back to Home Link -->
+        <div class="mb-6">
+            <a href="/languages/{{ lang }}/" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                <i class="fas fa-arrow-left mr-1"></i> {{ ui.back_to_home }}
+            </a>
+        </div>
+
+        <!-- Archive Title -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">{{ ui.archive_title }}</h2>
+            <p class="text-sm md:text-base text-gray-300">{{ ui.archive_subtitle }}</p>
+        </div>
+
+        <!-- Archive List -->
+        {% if archive_months %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {% for month_data in archive_months %}
+            <a href="/languages/{{ lang }}/archive/{{ month_data.folder }}/" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-calendar-alt text-blue-600 text-2xl mr-3"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">{{ month_data.display_name }}</h3>
+                        <p class="text-sm text-gray-500">{{ month_data.item_count }} {{ ui.items }}</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600">
+                    {{ month_data.research_count }} {{ ui.research_articles }} • {{ month_data.treatment_count }} {{ ui.treatments }}
+                </p>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 text-center">
+            <p class="text-blue-700">{{ ui.no_archives }}</p>
+        </div>
+        {% endif %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 bg-opacity-50 text-white mt-12 md:mt-16 py-6 md:py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs md:text-sm mb-2">&copy; {{ current_year }} {{ ui.footer_copyright }}</p>
+            <p class="text-xs text-gray-400">{{ ui.footer_note }}</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeLanguage(lang) {
+            window.location.href = '/languages/' + lang + '/archive';
+        }
+    </script>
+</body>
+</html>

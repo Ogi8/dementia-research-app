@@ -160,7 +160,7 @@ def format_date_for_language(date: datetime, lang: str) -> str:
         return f"{month_name} {date.day}, {date.year}"
 
 
-def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], output_dir: Path):
+def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], output_dir: Path, is_archived: bool = False, archive_date: str = None):
     """Generate static HTML page for a specific language."""
     # Language names for display
     lang_names = {
@@ -180,10 +180,24 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
             "language_label": "Language:",
             "last_updated": "Last updated:",
             "auto_update_note": "Content is automatically updated monthly",
+            "next_update": "Next update in:",
+            "updating": "Updating...",
+            "view_archive": "View Archive",
+            "archived_content": "Archived content from",
+            "all_archives": "All Archives",
+            "current_content": "Current Content",
+            "archive_title": "Monthly Archives",
+            "archive_subtitle": "Browse past research articles and treatments",
+            "back_to_home": "Back to Home",
+            "items": "items",
+            "research_articles": "research articles",
+            "treatments": "treatments",
+            "no_archives": "No archived content available yet. Archives will be created after the first monthly update.",
             "latest_research": "Latest Research",
             "latest_treatments": "Latest Treatments",
             "read_more": "Read more",
             "learn_more": "Learn more",
+            "source": "Source",
             "powered_by": "Powered by",
             "and": "and",
             "footer_copyright": "Dementia Research Information",
@@ -198,10 +212,24 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
             "language_label": "Sprache:",
             "last_updated": "Zuletzt aktualisiert:",
             "auto_update_note": "Inhalte werden automatisch monatlich aktualisiert",
+            "next_update": "Nächstes Update in:",
+            "updating": "Aktualisierung...",
+            "view_archive": "Archiv anzeigen",
+            "archived_content": "Archivierter Inhalt vom",
+            "all_archives": "Alle Archive",
+            "current_content": "Aktueller Inhalt",
+            "archive_title": "Monatsarchiv",
+            "archive_subtitle": "Durchsuchen Sie frühere Forschungsartikel und Behandlungen",
+            "back_to_home": "Zurück zur Startseite",
+            "items": "Einträge",
+            "research_articles": "Forschungsartikel",
+            "treatments": "Behandlungen",
+            "no_archives": "Noch keine archivierten Inhalte verfügbar. Archive werden nach dem ersten monatlichen Update erstellt.",
             "latest_research": "Neueste Forschung",
             "latest_treatments": "Neueste Behandlungen",
             "read_more": "Weiterlesen",
             "learn_more": "Mehr erfahren",
+            "source": "Quelle",
             "powered_by": "Bereitgestellt von",
             "and": "und",
             "footer_copyright": "Demenz-Forschungsinformation",
@@ -216,10 +244,24 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
             "language_label": "Langue :",
             "last_updated": "Dernière mise à jour :",
             "auto_update_note": "Le contenu est automatiquement mis à jour chaque mois",
+            "next_update": "Prochaine mise à jour dans :",
+            "updating": "Mise à jour...",
+            "view_archive": "Voir les archives",
+            "archived_content": "Contenu archivé du",
+            "all_archives": "Toutes les archives",
+            "current_content": "Contenu actuel",
+            "archive_title": "Archives mensuelles",
+            "archive_subtitle": "Parcourir les anciens articles de recherche et traitements",
+            "back_to_home": "Retour à l'accueil",
+            "items": "éléments",
+            "research_articles": "articles de recherche",
+            "treatments": "traitements",
+            "no_archives": "Aucun contenu archivé disponible pour le moment. Les archives seront créées après la première mise à jour mensuelle.",
             "latest_research": "Dernières recherches",
             "latest_treatments": "Derniers traitements",
             "read_more": "En savoir plus",
             "learn_more": "En savoir plus",
+            "source": "Source",
             "powered_by": "Propulsé par",
             "and": "et",
             "footer_copyright": "Information sur la recherche sur la démence",
@@ -234,10 +276,24 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
             "language_label": "Idioma:",
             "last_updated": "Última actualización:",
             "auto_update_note": "El contenido se actualiza automáticamente cada mes",
+            "next_update": "Próxima actualización en:",
+            "updating": "Actualizando...",
+            "view_archive": "Ver archivo",
+            "archived_content": "Contenido archivado del",
+            "all_archives": "Todos los archivos",
+            "current_content": "Contenido actual",
+            "archive_title": "Archivos mensuales",
+            "archive_subtitle": "Explorar artículos de investigación y tratamientos anteriores",
+            "back_to_home": "Volver al inicio",
+            "items": "elementos",
+            "research_articles": "artículos de investigación",
+            "treatments": "tratamientos",
+            "no_archives": "Aún no hay contenido archivado disponible. Los archivos se crearán después de la primera actualización mensual.",
             "latest_research": "Últimas investigaciones",
             "latest_treatments": "Últimos tratamientos",
             "read_more": "Leer más",
             "learn_more": "Saber más",
+            "source": "Fuente",
             "powered_by": "Desarrollado por",
             "and": "y",
             "footer_copyright": "Información sobre la investigación de la demencia",
@@ -252,10 +308,24 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
             "language_label": "Lingua:",
             "last_updated": "Ultimo aggiornamento:",
             "auto_update_note": "I contenuti vengono aggiornati automaticamente ogni mese",
+            "next_update": "Prossimo aggiornamento tra:",
+            "updating": "Aggiornamento...",
+            "view_archive": "Visualizza archivio",
+            "archived_content": "Contenuto archiviato del",
+            "all_archives": "Tutti gli archivi",
+            "current_content": "Contenuto corrente",
+            "archive_title": "Archivi mensili",
+            "archive_subtitle": "Sfoglia articoli di ricerca e trattamenti passati",
+            "back_to_home": "Torna alla home",
+            "items": "elementi",
+            "research_articles": "articoli di ricerca",
+            "treatments": "trattamenti",
+            "no_archives": "Nessun contenuto archiviato ancora disponibile. Gli archivi verranno creati dopo il primo aggiornamento mensile.",
             "latest_research": "Ultime ricerche",
             "latest_treatments": "Ultimi trattamenti",
             "read_more": "Leggi di più",
             "learn_more": "Scopri di più",
+            "source": "Fonte",
             "powered_by": "Offerto da",
             "and": "e",
             "footer_copyright": "Informazioni sulla ricerca sulla demenza",
@@ -270,10 +340,17 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
             "language_label": "Jezik:",
             "last_updated": "Zadnje ažuriranje:",
             "auto_update_note": "Sadržaj se automatski ažurira mjesečno",
+            "next_update": "Sljedeće ažuriranje za:",
+            "updating": "Ažuriranje...",
+            "view_archive": "Pogledaj arhivu",
+            "archived_content": "Arhivirani sadržaj od",
+            "all_archives": "Sve arhive",
+            "current_content": "Trenutni sadržaj",
             "latest_research": "Najnovija istraživanja",
             "latest_treatments": "Najnoviji tretmani",
             "read_more": "Pročitaj više",
             "learn_more": "Saznaj više",
+            "source": "Izvor",
             "powered_by": "Pokreće",
             "and": "i",
             "footer_copyright": "Informacije o istraživanju demencije",
@@ -312,7 +389,9 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
         articles=articles,
         treatments=treatments,
         update_date=formatted_date,
-        current_year=datetime.now().year
+        current_year=datetime.now().year,
+        is_archived=is_archived,
+        archive_date=archive_date if archive_date else formatted_date
     )
     
     # Save HTML file
@@ -323,6 +402,278 @@ def generate_html_page(lang: str, articles: List[Dict], treatments: List[Dict], 
     html_file.write_text(html_content, encoding="utf-8")
     
     print(f"  ✓ Generated: {html_file}")
+
+
+def generate_archive_index(lang: str, output_dir: Path):
+    """Generate archive index page showing all archived months."""
+    from datetime import datetime
+    import os
+    
+    # Language names for display
+    lang_names = {
+        "en": "English",
+        "de": "Deutsch",
+        "fr": "Français",
+        "es": "Español",
+        "it": "Italiano",
+        "hr": "Hrvatski"
+    }
+    
+    # UI translations (simplified for archive page)
+    ui_translations = {
+        "en": {
+            "page_title": "Dementia Research and Treatments Information",
+            "page_subtitle": "Latest Updates on Alzheimer's and Dementia Research",
+            "language_label": "Language:",
+            "archive_title": "Monthly Archives",
+            "archive_subtitle": "Browse past research articles and treatments",
+            "back_to_home": "Back to Home",
+            "items": "items",
+            "research_articles": "research articles",
+            "treatments": "treatments",
+            "no_archives": "No archived content available yet. Archives will be created after the first monthly update.",
+            "footer_copyright": "Dementia Research Information",
+            "footer_note": "For educational purposes only."
+        },
+        "de": {
+            "page_title": "Informationen zu Demenz-Forschung und -Behandlungen",
+            "page_subtitle": "Neueste Updates zur Alzheimer- und Demenzforschung",
+            "language_label": "Sprache:",
+            "archive_title": "Monatsarchiv",
+            "archive_subtitle": "Durchsuchen Sie frühere Forschungsartikel und Behandlungen",
+            "back_to_home": "Zurück zur Startseite",
+            "items": "Einträge",
+            "research_articles": "Forschungsartikel",
+            "treatments": "Behandlungen",
+            "no_archives": "Noch keine archivierten Inhalte verfügbar. Archive werden nach dem ersten monatlichen Update erstellt.",
+            "footer_copyright": "Demenz-Forschungsinformation",
+            "footer_note": "Nur für Bildungszwecke."
+        },
+        "fr": {
+            "page_title": "Informations sur la recherche et les traitements de la démence",
+            "page_subtitle": "Dernières mises à jour sur la recherche sur Alzheimer et la démence",
+            "language_label": "Langue :",
+            "archive_title": "Archives mensuelles",
+            "archive_subtitle": "Parcourir les anciens articles de recherche et traitements",
+            "back_to_home": "Retour à l'accueil",
+            "items": "éléments",
+            "research_articles": "articles de recherche",
+            "treatments": "traitements",
+            "no_archives": "Aucun contenu archivé disponible pour le moment. Les archives seront créées après la première mise à jour mensuelle.",
+            "footer_copyright": "Information sur la recherche sur la démence",
+            "footer_note": "À des fins éducatives uniquement."
+        },
+        "es": {
+            "page_title": "Información sobre investigación y tratamientos de demencia",
+            "page_subtitle": "Últimas actualizaciones sobre la investigación de Alzheimer y demencia",
+            "language_label": "Idioma:",
+            "archive_title": "Archivos mensuales",
+            "archive_subtitle": "Explorar artículos de investigación y tratamientos anteriores",
+            "back_to_home": "Volver al inicio",
+            "items": "elementos",
+            "research_articles": "artículos de investigación",
+            "treatments": "tratamientos",
+            "no_archives": "Aún no hay contenido archivado disponible. Los archivos se crearán después de la primera actualización mensual.",
+            "footer_copyright": "Información sobre la investigación de la demencia",
+            "footer_note": "Solo con fines educativos."
+        },
+        "it": {
+            "page_title": "Informazioni sulla ricerca e i trattamenti della demenza",
+            "page_subtitle": "Ultimi aggiornamenti sulla ricerca su Alzheimer e demenza",
+            "language_label": "Lingua:",
+            "archive_title": "Archivi mensili",
+            "archive_subtitle": "Sfoglia articoli di ricerca e trattamenti passati",
+            "back_to_home": "Torna alla home",
+            "items": "elementi",
+            "research_articles": "articoli di ricerca",
+            "treatments": "trattamenti",
+            "no_archives": "Nessun contenuto archiviato ancora disponibile. Gli archivi verranno creati dopo il primo aggiornamento mensile.",
+            "footer_copyright": "Informazioni sulla ricerca sulla demenza",
+            "footer_note": "Solo a scopo educativo."
+        },
+        "hr": {
+            "page_title": "Informacije o istraživanjima i liječenju demencije",
+            "page_subtitle": "Najnovija ažuriranja o istraživanju Alzheimerove bolesti i demencije",
+            "language_label": "Jezik:",
+            "archive_title": "Mjesečna arhiva",
+            "archive_subtitle": "Pregledaj prošle istraživačke članke i tretmane",
+            "back_to_home": "Natrag na početnu",
+            "items": "stavki",
+            "research_articles": "istraživačkih članaka",
+            "treatments": "tretmana",
+            "no_archives": "Još nema arhiviranog sadržaja. Arhiva će biti stvorena nakon prvog mjesečnog ažuriranja.",
+            "footer_copyright": "Informacije o istraživanju demencije",
+            "footer_note": "Samo u obrazovne svrhe."
+        }
+    }
+    
+    # Month name translations for displaying archive dates
+    month_names = {
+        "en": ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"],
+        "de": ["Januar", "Februar", "März", "April", "Mai", "Juni",
+               "Juli", "August", "September", "Oktober", "November", "Dezember"],
+        "fr": ["janvier", "février", "mars", "avril", "mai", "juin",
+               "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+        "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+               "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+        "it": ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
+               "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],
+        "hr": ["siječnja", "veljače", "ožujka", "travnja", "svibnja", "lipnja",
+               "srpnja", "kolovoza", "rujna", "listopada", "studenoga", "prosinca"]
+    }
+    
+    # Get archive directories
+    lang_dir = output_dir / lang
+    archive_base = lang_dir / "archive"
+    
+    archive_months = []
+    if archive_base.exists():
+        for month_folder in sorted(archive_base.iterdir(), reverse=True):
+            if month_folder.is_dir() and (month_folder / "index.html").exists():
+                # Parse YYYY-MM format
+                try:
+                    year, month = month_folder.name.split("-")
+                    month_num = int(month)
+                    
+                    # Get localized month name
+                    months = month_names.get(lang, month_names["en"])
+                    month_name = months[month_num - 1]
+                    
+                    # Format display name by language
+                    if lang == "en":
+                        display_name = f"{month_name} {year}"
+                    elif lang == "de":
+                        display_name = f"{month_name} {year}"
+                    elif lang == "fr":
+                        display_name = f"{month_name} {year}"
+                    elif lang == "es":
+                        display_name = f"{month_name} de {year}"
+                    elif lang == "it":
+                        display_name = f"{month_name} {year}"
+                    elif lang == "hr":
+                        display_name = f"{month_name} {year}."
+                    else:
+                        display_name = f"{month_name} {year}"
+                    
+                    archive_months.append({
+                        "folder": month_folder.name,
+                        "display_name": display_name,
+                        "item_count": 18,  # 8 research + 10 treatments
+                        "research_count": 8,
+                        "treatment_count": 10
+                    })
+                except (ValueError, IndexError):
+                    continue
+    
+    # Setup Jinja2 template environment
+    template_dir = Path(__file__).parent.parent / "templates"
+    env = Environment(loader=FileSystemLoader(str(template_dir)))
+    template = env.get_template("archive_page.html")
+    
+    # Get translations for current language
+    ui = ui_translations.get(lang, ui_translations["en"])
+    
+    # Render HTML
+    html_content = template.render(
+        lang=lang,
+        lang_name=lang_names.get(lang, lang.upper()),
+        all_languages=settings.languages_list,
+        lang_names=lang_names,
+        ui=ui,
+        archive_months=archive_months,
+        current_year=datetime.now().year
+    )
+    
+    # Save archive index page
+    archive_index_dir = lang_dir / "archive"
+    archive_index_dir.mkdir(parents=True, exist_ok=True)
+    archive_index_file = archive_index_dir / "index.html"
+    archive_index_file.write_text(html_content, encoding="utf-8")
+    print(f"    ✓ Archive index: {archive_index_file}")
+
+
+def generate_archived_page(lang: str, articles: List[Dict], treatments: List[Dict], archive_month: str, base_output_dir: Path):
+    """Generate an archived page with special styling and navigation."""
+    from jinja2 import Environment, FileSystemLoader
+    from datetime import datetime
+    
+    # Calculate archive directory
+    lang_dir = base_output_dir / lang
+    archive_dir = lang_dir / "archive" / archive_month
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Use the same template but with is_archived=True
+    template_dir = Path(__file__).parent.parent / "templates"
+    env = Environment(loader=FileSystemLoader(str(template_dir)))
+    template = env.get_template("language_page.html")
+    
+    # Get UI translations (reuse from generate_html_page)
+    lang_names = {
+        "en": "English",
+        "de": "Deutsch",
+        "fr": "Français",
+        "es": "Español",
+        "it": "Italiano",
+        "hr": "Hrvatski"
+    }
+    
+    # Simplified UI translations for archived pages
+    ui_translations = {
+        "en": {"archived_content": "Archived content from", "all_archives": "All Archives", "current_content": "Current Content", 
+               "latest_research": "Latest Research", "latest_treatments": "Latest Treatments", "read_more": "Read more", 
+               "learn_more": "Learn more", "source": "Source", "footer_copyright": "Dementia Research Information",
+               "footer_note": "For educational purposes only.", "language_label": "Language:", "status_approved": "FDA Approved",
+               "status_trial": "Clinical Trial", "status_research": "Research Stage"},
+        "de": {"archived_content": "Archivierter Inhalt vom", "all_archives": "Alle Archive", "current_content": "Aktueller Inhalt",
+               "latest_research": "Neueste Forschung", "latest_treatments": "Neueste Behandlungen", "read_more": "Weiterlesen",
+               "learn_more": "Mehr erfahren", "source": "Quelle", "footer_copyright": "Demenz-Forschungsinformation",
+               "footer_note": "Nur für Bildungszwecke.", "language_label": "Sprache:", "status_approved": "FDA-zugelassen",
+               "status_trial": "Klinische Studie", "status_research": "Forschungsstadium"},
+        "fr": {"archived_content": "Contenu archivé du", "all_archives": "Toutes les archives", "current_content": "Contenu actuel",
+               "latest_research": "Dernières recherches", "latest_treatments": "Derniers traitements", "read_more": "En savoir plus",
+               "learn_more": "En savoir plus", "source": "Source", "footer_copyright": "Information sur la recherche sur la démence",
+               "footer_note": "À des fins éducatives uniquement.", "language_label": "Langue :", "status_approved": "Approuvé par la FDA",
+               "status_trial": "Essai clinique", "status_research": "Phase de recherche"},
+        "es": {"archived_content": "Contenido archivado del", "all_archives": "Todos los archivos", "current_content": "Contenido actual",
+               "latest_research": "Últimas investigaciones", "latest_treatments": "Últimos tratamientos", "read_more": "Leer más",
+               "learn_more": "Saber más", "source": "Fuente", "footer_copyright": "Información sobre la investigación de la demencia",
+               "footer_note": "Solo con fines educativos.", "language_label": "Idioma:", "status_approved": "Aprobado por la FDA",
+               "status_trial": "Ensayo clínico", "status_research": "Fase de investigación"},
+        "it": {"archived_content": "Contenuto archiviato del", "all_archives": "Tutti gli archivi", "current_content": "Contenuto corrente",
+               "latest_research": "Ultime ricerche", "latest_treatments": "Ultimi trattamenti", "read_more": "Leggi di più",
+               "learn_more": "Scopri di più", "source": "Fonte", "footer_copyright": "Informazioni sulla ricerca sulla demenza",
+               "footer_note": "Solo a scopo educativo.", "language_label": "Lingua:", "status_approved": "Approvato dalla FDA",
+               "status_trial": "Sperimentazione clinica", "status_research": "Fase di ricerca"},
+        "hr": {"archived_content": "Arhivirani sadržaj od", "all_archives": "Sve arhive", "current_content": "Trenutni sadržaj",
+               "latest_research": "Najnovija istraživanja", "latest_treatments": "Najnoviji tretmani", "read_more": "Pročitaj više",
+               "learn_more": "Saznaj više", "source": "Izvor", "footer_copyright": "Informacije o istraživanju demencije",
+               "footer_note": "Samo u obrazovne svrhe.", "language_label": "Jezik:", "status_approved": "FDA odobreno",
+               "status_trial": "Klinička studija", "status_research": "Faza istraživanja"}
+    }
+    
+    ui = ui_translations.get(lang, ui_translations["en"])
+    formatted_archive_date = format_date_for_language(datetime.now(), lang)
+    
+    # Render HTML with is_archived=True
+    html_content = template.render(
+        lang=lang,
+        lang_name=lang_names.get(lang, lang.upper()),
+        all_languages=settings.languages_list,
+        lang_names=lang_names,
+        ui=ui,
+        articles=articles,
+        treatments=treatments,
+        update_date=formatted_archive_date,
+        current_year=datetime.now().year,
+        is_archived=True,
+        archive_date=formatted_archive_date
+    )
+    
+    # Save archived page
+    archive_file = archive_dir / "index.html"
+    archive_file.write_text(html_content, encoding="utf-8")
+    return archive_file
 
 
 def create_template(template_file: Path):
@@ -503,6 +854,28 @@ async def main():
     output_dir = Path(__file__).parent.parent / "static" / "languages"
     output_dir.mkdir(parents=True, exist_ok=True)
     
+    # Archive current content before updating (if exists)
+    current_month = datetime.now().strftime("%Y-%m")
+    print(f"💾 Archiving current content for {current_month}...")
+    
+    # Store current articles and treatments for archiving
+    archived_articles = {}
+    archived_treatments = {}
+    
+    for lang in settings.languages_list:
+        lang_dir = output_dir / lang
+        current_page = lang_dir / "index.html"
+        
+        if current_page.exists():
+            # We'll regenerate the archive pages after we translate new content
+            # For now, just note that we need to archive this language
+            archived_articles[lang] = articles.copy()
+            archived_treatments[lang] = treatments.copy()
+    
+    if archived_articles:
+        print(f"  ✓ Marked {len(archived_articles)} languages for archiving")
+    print()
+    
     # Process each language
     for lang in settings.languages_list:
         print(f"🌐 Processing language: {lang.upper()}")
@@ -517,6 +890,22 @@ async def main():
         # Generate HTML page
         print(f"  📄 Generating HTML page...")
         generate_html_page(lang, translated_articles, translated_treatments, output_dir)
+        
+        # Generate archived version if this language had existing content
+        if lang in archived_articles:
+            print(f"  📦 Generating archived page for {current_month}...")
+            # Translate the old articles/treatments for archiving
+            archived_translated_articles = await translate_articles(archived_articles[lang], lang)
+            archived_translated_treatments = await translate_treatments(archived_treatments[lang], lang)
+            
+            # Generate archived page with proper metadata
+            archive_file = generate_archived_page(lang, archived_translated_articles, archived_translated_treatments, 
+                                                  current_month, output_dir)
+            print(f"    ✓ Archived: {archive_file}")
+        
+        # Generate archive index
+        print(f"  📚 Generating archive index...")
+        generate_archive_index(lang, output_dir)
         
         print()
     

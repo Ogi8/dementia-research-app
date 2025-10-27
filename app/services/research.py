@@ -472,7 +472,8 @@ async def scrape_brightfocus_treatments() -> List[Treatment]:
             description="GLP-1 analogs, originally developed for diabetes and weight loss (like semaglutide/Ozempic), show promise for Alzheimer's treatment. Research suggests these drugs may protect brain health, improve memory, and slow neurodegeneration by reducing inflammation and supporting brain cell survival.",
             status="research",
             approval_date=None,
-            url="https://www.brightfocus.org/resource/can-glp-1-weight-loss-drugs-treat-alzheimers/"
+            url="https://www.brightfocus.org/resource/can-glp-1-weight-loss-drugs-treat-alzheimers/",
+            source="BrightFocus"
         ),
         Treatment(
             id="brightfocus_light_sound",
@@ -480,7 +481,8 @@ async def scrape_brightfocus_treatments() -> List[Treatment]:
             description="Non-invasive therapy using 40Hz frequency light and sound stimulation to target gamma brain waves. The HOPE Study investigates how this therapy may protect memory, thinking abilities, and daily function in Alzheimer's patients by potentially reducing harmful brain proteins.",
             status="in_trial",
             approval_date=None,
-            url="https://www.brightfocus.org/resource/non-invasive-light-and-sound-stimulation-therapy-in-alzheimers-update-on-hope-study/"
+            url="https://www.brightfocus.org/resource/non-invasive-light-and-sound-stimulation-therapy-in-alzheimers-update-on-hope-study/",
+            source="BrightFocus"
         ),
         Treatment(
             id="brightfocus_regenbrain",
@@ -488,7 +490,8 @@ async def scrape_brightfocus_treatments() -> List[Treatment]:
             description="The ReGenBRAIN clinical trial explores whether brain tissue can be regenerated in Alzheimer's patients. This innovative approach investigates therapies that may stimulate brain cell regeneration and repair damaged neural networks.",
             status="in_trial",
             approval_date=None,
-            url="https://www.brightfocus.org/resource/can-brain-tissue-be-regenerated-inside-the-regenbrain-trial/"
+            url="https://www.brightfocus.org/resource/can-brain-tissue-be-regenerated-inside-the-regenbrain-trial/",
+            source="BrightFocus"
         )
     ]
     return treatments
@@ -503,7 +506,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="Lecanemab is a humanized IgG1 monoclonal antibody that targets aggregated soluble (protofibrils) and insoluble forms of amyloid-beta. Clinical trials showed it slowed cognitive decline by 27% over 18 months in early Alzheimer's patients. Approved by EMA in 2024.",
             status="approved",
             approval_date="2024",
-            url="https://www.ema.europa.eu/en/medicines/human/EPAR/leqembi"
+            url="https://www.ema.europa.eu/en/medicines/human/EPAR/leqembi",
+            source="EMA"
         ),
         Treatment(
             id="donanemab_eu",
@@ -511,7 +515,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="Donanemab is a monoclonal antibody targeting a modified form of deposited amyloid-beta plaques (N3pG). Phase 3 trials show it slowed cognitive decline by up to 35% in early symptomatic Alzheimer's disease. EMA review ongoing for European approval in 2024-2025.",
             status="in_trial",
             approval_date=None,
-            url="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/donanemab"
+            url="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/donanemab",
+            source="EMA"
         ),
         Treatment(
             id="light_therapy_eu",
@@ -519,7 +524,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="The LUMIPOSA trial (NCT05955534) at Charité Berlin investigates 40Hz invisible spectral light therapy for mild to moderate Alzheimer's. The study uses gamma frequency light stimulation to potentially reduce amyloid plaques and improve cognitive function through non-invasive brain stimulation.",
             status="in_trial",
             approval_date=None,
-            url="https://www.clinicaltrialsregister.eu/ctr-search/search?query=NCT05955534"
+            url="https://www.clinicaltrialsregister.eu/ctr-search/search?query=NCT05955534",
+            source="EU Clinical Trials"
         ),
         Treatment(
             id="mediterranean_diet_eu",
@@ -527,7 +533,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="European multicenter trials (FINGER, LIPIDIDIET) demonstrate that the MIND diet—combining Mediterranean and DASH diets—may slow cognitive decline. The diet emphasizes olive oil, fish, vegetables, berries, and nuts while limiting red meat and saturated fats.",
             status="research",
             approval_date=None,
-            url="https://alzheimer-europe.org/research/finger-study"
+            url="https://alzheimer-europe.org/research/finger-study",
+            source="Alzheimer Europe"
         ),
         Treatment(
             id="gantenerumab_eu",
@@ -535,7 +542,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="Gantenerumab is a fully human IgG1 monoclonal antibody designed to bind aggregated amyloid-beta. Despite initial setbacks, Roche continues European trials with higher dosing regimens. Recent studies show some promise in reducing amyloid plaques in early Alzheimer's disease.",
             status="in_trial",
             approval_date=None,
-            url="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/gantenerumab"
+            url="https://www.ema.europa.eu/en/medicines/human/summaries-opinion/gantenerumab",
+            source="EMA"
         ),
         Treatment(
             id="tdcs_eu",
@@ -543,7 +551,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="European research centers investigate non-invasive tDCS therapy for Alzheimer's. Low-intensity electrical stimulation targets brain regions involved in memory and cognition. Multiple EU trials show modest improvements in cognitive performance and daily functioning.",
             status="research",
             approval_date=None,
-            url="https://www.alzheimer-europe.org/research/understanding-dementia-research/types-research/non-drug-research"
+            url="https://www.alzheimer-europe.org/research/understanding-dementia-research/types-research/non-drug-research",
+            source="Alzheimer Europe"
         ),
         Treatment(
             id="aducanumab_eu",
@@ -551,7 +560,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="Aducanumab is a human monoclonal antibody targeting aggregated forms of amyloid-beta. While controversially approved in the US in 2021, EMA rejected it in 2021 citing insufficient evidence. Some European centers continue observational studies on its long-term effects.",
             status="research",
             approval_date=None,
-            url="https://www.ema.europa.eu/en/medicines/human/withdrawn-applications/aduhelm"
+            url="https://www.ema.europa.eu/en/medicines/human/withdrawn-applications/aduhelm",
+            source="EMA"
         ),
         Treatment(
             id="memantine_extended_eu",
@@ -559,7 +569,8 @@ async def scrape_eu_clinical_trials() -> List[Treatment]:
             description="European trials investigate extended-release memantine (NMDA receptor antagonist) combined with acetylcholinesterase inhibitors for moderate to severe Alzheimer's. Studies focus on optimized dosing schedules and combination therapies to maximize cognitive benefits.",
             status="approved",
             approval_date="2002",
-            url="https://www.ema.europa.eu/en/medicines/human/EPAR/ebixa"
+            url="https://www.ema.europa.eu/en/medicines/human/EPAR/ebixa",
+            source="EMA"
         )
     ]
     return treatments

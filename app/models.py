@@ -25,6 +25,7 @@ class Treatment(BaseModel):
     status: str  # "approved", "clinical_trial", "research"
     approval_date: Optional[datetime] = None
     url: Optional[str] = None
+    source: str = "Clinical Trial"
 
 
 class SummarizeRequest(BaseModel):
